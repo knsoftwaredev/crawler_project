@@ -1,5 +1,4 @@
 import scrapy
-
 from mecuti.items import MecutiItem
 
 class MecutiPost(scrapy.Spider):
@@ -7,8 +6,8 @@ class MecutiPost(scrapy.Spider):
 
 	def start_requests(self):
 		urls = [
-			'http://mecuti.vn/',
-			# 'http://mecuti.vn/page/10',
+			# 'http://mecuti.vn/',
+			'http://mecuti.vn/page/10',
 			# 'http://mecuti.vn/hai-tran-thanh-minh-nhi-2015-so-do-voi-banh-beo.html'
 		]
 
@@ -31,7 +30,6 @@ class MecutiPost(scrapy.Spider):
 			arrPagi = pagi.split('/')
 			numPage = arrPagi[len(arrPagi)-1]
 
-			# yield scrapy.Request(url = pagi, callback=self.parse)
 			if int(numPage) <= 10:
 				yield scrapy.Request(url = pagi, callback=self.parse)
 

@@ -7,11 +7,16 @@
 
 from sqlalchemy import MetaData, create_engine
 from sqlalchemy import Table, Column, String, Text, Integer
+from helper import Helper
 
 class MecutiPipeline(object):
 
 	def __init__(self):
-		_engine = create_engine('sqlite:///./crawled/mecuti_vn.db', echo=False)
+		_helper = Helper()
+
+		_sqlitePath = 'sqlite:///./{}/mecuti_vn.db'.format(_helper.generate_dir_saved())
+
+		_engine = create_engine(_sqlitePath, echo=False)
 		_connect = _engine.connect()
 		_metadata = MetaData()
 		_posts = Table('posts', _metadata,
