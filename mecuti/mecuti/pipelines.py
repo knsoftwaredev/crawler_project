@@ -11,7 +11,7 @@ from sqlalchemy import Table, Column, String, Text, Integer
 class MecutiPipeline(object):
 
 	def __init__(self):
-		_engine = create_engine('sqlite:///mecuti_vn.db', echo=False)
+		_engine = create_engine('sqlite:///./crawled/mecuti_vn.db', echo=False)
 		_connect = _engine.connect()
 		_metadata = MetaData()
 		_posts = Table('posts', _metadata,

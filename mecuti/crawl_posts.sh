@@ -1,3 +1,2 @@
-rm posts.json
-rm mecuti_vn.db
-scrapy crawl posts -o posts.json
+rm -rf crawled/*
+scrapy crawl posts -o crawled/posts.json
